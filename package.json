@@ -13,6 +13,8 @@
     "@web3-react/core": "^6.1.9",
     "@web3-react/injected-connector": "^6.0.7",
     "axios": "^0.26.1",
+    "logger": "0.0.1",
+    "mongoose": "^6.2.10",
     "next": "12.1.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
