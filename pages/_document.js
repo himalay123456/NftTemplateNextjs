@@ -21,14 +21,14 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script src="/assets/js/vendor/core.min.js"></script>
-          <script src="/assets/js/vendor/popper.min.js"></script>
-          <script src="/assets/js/vendor/bootstrap.min.js"></script>
-          <script src="/assets/js/vendor/all.min.js"></script>
-          <script src="/assets/js/vendor/slider.min.js"></script>
-          <script src="/assets/js/vendor/countdown.min.js"></script>
-          <script src="/assets/js/vendor/shuffle.min.js"></script>
-          <script src="/assets/js/main.js"></script>
+          <script async src="/assets/js/vendor/core.min.js"></script>
+          <script async src="/assets/js/vendor/popper.min.js"></script>
+          <script async src="/assets/js/vendor/bootstrap.min.js"></script>
+          <script async src="/assets/js/vendor/all.min.js"></script>
+          <script async src="/assets/js/vendor/slider.min.js"></script>
+          <script async src="/assets/js/vendor/countdown.min.js"></script>
+          <script async src="/assets/js/vendor/shuffle.min.js"></script>
+          <script async src="/assets/js/main.js"></script>
         </body>
       </Html>
     );
