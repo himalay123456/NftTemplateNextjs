@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Web3ReactProvider, useWeb3React } from "@web3-react/core";
+import React from 'react';
+import { Web3ReactProvider } from "@web3-react/core";
 
-import { useEagerConnect, useInactiveListener } from 'src/hooks';
 import getLibrary from "src/utils/getLibrary";
 import "../styles/globals.css";
 
