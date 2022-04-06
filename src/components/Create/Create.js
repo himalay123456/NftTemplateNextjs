@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+
+import { useNFTContract } from 'src/hooks';
 import AuthorProfile from "../AuthorProfile/AuthorProfile";
 
-class Create extends Component {
-    render() {
+const Create = () => {
+    const NFT_CONTRACT_INSTANCE = useNFTContract();
+    console.log("NFT_CONTRACT_INSTANCE", NFT_CONTRACT_INSTANCE?.methods)
         return (
             <section className="author-area">
                 <div className="container">
@@ -86,7 +89,6 @@ class Create extends Component {
                 </div>
             </section>
         );
-    }
 }
 
 export default Create;
