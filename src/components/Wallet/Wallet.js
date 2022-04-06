@@ -66,7 +66,6 @@ const Activity = () =>  {
             if (MetaMaskOnboarding.isMetaMaskInstalled()) {
                 setActivatingConnector(injected);
                 await activate(injected);
-                localStorage.setItem('shouldEagerConnect', true);
             } else {
                 await onboarding.current.startOnboarding();
             }
@@ -77,6 +76,7 @@ const Activity = () =>  {
     const disconnectWallet = (title) => {
       if(title === 'MetaMask' && active)
       {
+        console.log("deactivate");
         localStorage.setItem('shouldEagerConnect', false);
         deactivate();
       }
