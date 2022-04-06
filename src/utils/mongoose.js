@@ -12,8 +12,6 @@ export async function dbConnect(){
     const db = await connect(process.env.NEXT_PUBLIC_MONGOOSE_URI);
     con.isConnected = db.connections[0].readyState;
 
-    console.log(db.connection.db.databaseName);
-
     connection.on('connected',() => {
         console.log('Database connected')
     })

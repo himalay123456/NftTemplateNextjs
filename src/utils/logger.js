@@ -1,5 +1,6 @@
 import winston , { format } from 'winston';
 import moment from 'moment'
+import 'winston-daily-rotate-file';
 import 'moment-timezone';
 
 // winston.emitErrs = true

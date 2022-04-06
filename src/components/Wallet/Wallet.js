@@ -76,7 +76,6 @@ const Activity = () =>  {
     const disconnectWallet = (title) => {
       if(title === 'MetaMask' && active)
       {
-        console.log("deactivate");
         localStorage.setItem('shouldEagerConnect', false);
         deactivate();
       }
