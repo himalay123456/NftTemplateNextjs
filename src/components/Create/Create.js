@@ -71,8 +71,8 @@ const Create = () => {
                 return errors;
               }}
               onSubmit={(values, { setSubmitting }) => {
-                // createNft(values);
-                console.log(values);
+                createNft(values);
+                // console.log(values);
               }}
             >
               {({
