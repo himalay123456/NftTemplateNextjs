@@ -3,7 +3,7 @@ import axios from "axios";
 import { useWeb3React } from "@web3-react/core";
 import MetaMaskOnboarding from "@metamask/onboarding";
 
-import Web3 from 'src/utils/web3';
+import Web3 from "src/utils/web3";
 import { injected } from "src/utils/connectors";
 import { useEagerConnect, useInactiveListener } from "src/hooks";
 
@@ -61,13 +61,19 @@ const Activity = () => {
 
   // Wallet connect function handler
   const connectWallet = async (title) => {
-    let chainId = await web3.eth.getChainId();
+    const chainId = await web3.eth.getChainId();
     console.log(chainId);
     // Metamask
     if (title === "MetaMask") {
       if (MetaMaskOnboarding.isMetaMaskInstalled()) {
         setActivatingConnector(injected);
         await activate(injected);
+        if (chainId !== 43113) {
+          await ethereum.request({
+            method: "wallet_switchEthereumChain",
+            params: [{ chainId: "0xA869" }],
+          });
+        }
       } else {
         await onboarding.current.startOnboarding();
       }
@@ -101,22 +107,18 @@ const Activity = () => {
               <div key={`wd_${idx}`} className="col-12 col-md-6 col-lg-4 item">
                 {/* Single Wallet */}
                 <div className="card single-wallet">
-                  <a
-                    className="d-block text-center"
-                    onClick={() => connectWallet(item.title)}
-                  >
+                  <a className="d-block text-center">
                     <img className="avatar-lg" src={item.img} alt="" />
                     <h4 className="mb-0">{item.title}</h4>
-                    <p
-                      onClick={() => disconnectWallet(item.title)}
-                      className="wallet-connected"
-                    >
+                    <p className="wallet-connected">
                       {item.title === "MetaMask" && active && "Connected"}
                     </p>
                     <p>{item.content}</p>
                     <div className="col-12">
                       <button
-                        onClick={() => disconnectWallet(item.title)}
+                        onClick={() =>
+                          active ? disconnectWallet(item.title) : connectWallet(item.title)
+                        }
                         className="btn w-100 mt-3 mt-sm-4"
                       >
                         {active ? "Disconnect" : "Connect"}
